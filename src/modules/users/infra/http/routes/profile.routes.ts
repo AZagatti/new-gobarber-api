@@ -1,6 +1,7 @@
 import { Router } from 'express';
 
 import ProfileController from '../controllers/ProfileController';
+import profileValidator from '../validators/ProfileValidator';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
@@ -10,6 +11,6 @@ const profileController = new ProfileController();
 profileRouter.use(ensureAuthenticated);
 
 profileRouter.get('/', profileController.show);
-profileRouter.put('/', profileController.update);
+profileRouter.put('/', profileValidator.update, profileController.update);
 
 export default profileRouter;
