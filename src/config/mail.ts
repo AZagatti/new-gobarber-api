@@ -14,7 +14,7 @@ export default {
 
   defaults: {
     from: {
-      email: 'master@azagatti.dev',
+      email: process.env.SES_EMAIL,
       name: 'André Zagatti',
     },
   },
